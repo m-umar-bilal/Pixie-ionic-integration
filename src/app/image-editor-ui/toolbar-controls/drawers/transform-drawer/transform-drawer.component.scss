@@ -1,0 +1,34 @@
+@import "~vebto-client/scss/_variables";
+@import '~@angular/material/theming';
+
+transform-drawer {
+  display: block;
+
+  .content {
+    flex-wrap: wrap;
+  }
+
+  .buttons-container {
+    margin: 0 25px;
+  }
+
+  .button-with-image.small {
+    width: 55px;
+    height: 55px;
+
+    svg-icon, img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media only screen and (max-width: $tablet) {
+    .buttons-container {
+      margin: 0;
+    }
+    
+    .mat-slider {
+      display: none;
+    }
+  }
+}

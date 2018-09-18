@@ -1,0 +1,31 @@
+<form [formGroup]="activeObject.model">
+    <div class="button-group">
+        <div class="buttons">
+            <button (click)="activeObject.setValue('text.align', 'left')" [class.selected]="activeObject.getValue('text.align') === 'left'" mat-icon-button>
+                <svg-icon name="format-align-left"></svg-icon>
+            </button>
+            <button (click)="activeObject.setValue('text.align', 'center')" [class.selected]="activeObject.getValue('text.align') === 'center'" mat-icon-button>
+                <svg-icon name="format-align-center"></svg-icon>
+            </button>
+            <button (click)="activeObject.setValue('text.align', 'right')" [class.selected]="activeObject.getValue('text.align') === 'right'" mat-icon-button>
+                <svg-icon name="format-align-right"></svg-icon>
+            </button>
+        </div>
+        <div class="name bottom-label" trans>Align Text</div>
+    </div>
+
+    <div class="button-group">
+        <div class="buttons">
+            <button (click)="toggleValue('text.underline')" [class.selected]="activeObject.getValue('text.underline')" mat-icon-button>
+                <svg-icon name="format-underlined"></svg-icon>
+            </button>
+            <button (click)="toggleValue('text.linethrough')" [class.selected]="activeObject.getValue('text.linethrough')" mat-icon-button>
+                <svg-icon name="format-strikethrough"></svg-icon>
+            </button>
+            <button (click)="toggleItalicStyle()" [class.selected]="activeObject.getValue('text.fontStyle') === 'italic'" mat-icon-button>
+                <svg-icon name="format-italic"></svg-icon>
+            </button>
+        </div>
+        <div class="name bottom-label" trans>Format Text</div>
+    </div>
+</form>

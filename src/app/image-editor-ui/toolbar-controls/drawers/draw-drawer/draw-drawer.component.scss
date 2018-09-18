@@ -1,0 +1,62 @@
+@import "../../../../../../node_modules/vebto-client/scss/variables";
+@import '../../../../../../node_modules/@angular/material/theming';
+
+draw-drawer {
+  display: block;
+
+  .brush-sizes {
+    margin-left: 25px;
+
+    .sizes {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+
+      .size {
+        width: 10px;
+        height: 10px;
+        max-width: 30px;
+        max-height: 30px;
+        border: 3px solid currentColor;
+        margin: 0 8px;
+        border-radius: 50%;
+
+        &.selected {
+          border-color: $site-accent-color;
+        }
+      }
+    }
+
+    .bottom-label {
+      margin-top: 17px;
+    }
+  }
+
+  .brush-type-button-wrapper {
+    margin: 0 15px;
+  }
+
+  @media only screen and (max-width: $tablet) {
+    .main-content {
+      flex-direction: column;
+    }
+
+    .bottom-label {
+      display: none;
+    }
+
+    .brush-type-button-wrapper {
+      position: absolute;
+      left: 15px;
+      bottom: 10px;
+    }
+
+    .brush-sizes .sizes {
+      margin-top: 10px;
+    }
+
+    &.controls-drawer .brush-types-content {
+      justify-content: flex-start;
+    }
+  }
+}

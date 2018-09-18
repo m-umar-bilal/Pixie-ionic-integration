@@ -1,0 +1,22 @@
+<div class="content">
+    <ng-container *ngIf="!activeCategory || controls.panelIsVisible('stickers')">
+        <div class="category button-with-image" *ngFor="let category of categories" (click)="openStickersCategory(category)">
+            <img [src]="shapesTool.getStickerCategoryUrl(category)" alt="Sticker category preview image">
+            <div class="bottom-label" trans>{{category.name}}</div>
+        </div>
+    </ng-container>
+
+    <div class="stickers-list" *ngIf="activeCategory && ! controls.panelIsVisible('stickers')">
+        <button
+                class="sticker button-with-image"
+                [class.no-label]="!activeCategory.list"
+                [class.dark-bg]="activeCategory.darkBg"
+                *ngFor="let name of getStickersIterable(activeCategory);"
+                (click)="addSticker(activeCategory, name); button.blur()"
+                #button
+        >
+            <img [src]="shapesTool.getStickerUrl(activeCategory, name)" alt="Sticker preview image">
+            <span class="bottom-label" *ngIf="activeCategory.list" trans>{{name}}</span>
+        </button>
+    </div>
+</div>

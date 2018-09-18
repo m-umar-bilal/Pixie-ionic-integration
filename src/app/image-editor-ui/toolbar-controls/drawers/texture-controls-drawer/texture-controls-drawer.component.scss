@@ -1,0 +1,13 @@
+texture-controls-drawer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  > .texture {
+    margin: 0 5px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}

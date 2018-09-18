@@ -1,0 +1,12 @@
+<div class="header">
+    <div class="name" trans>History</div>
+    <button class="close-button" mat-icon-button (click)="panelRef.close()">
+        <svg-icon name="close"></svg-icon>
+    </button>
+</div>
+<div class="items-list" customScrollbar>
+    <div class="item" *ngFor="let item of history.getAllItems()" (click)="loadHistoryState(item)" [class.active]="item.index === history.getPointer()">
+        <svg-icon [name]="item.icon" class="list-icon"></svg-icon>
+        <div class="name" trans>{{item.name}}</div>
+    </div>
+</div>

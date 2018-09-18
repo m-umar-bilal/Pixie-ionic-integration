@@ -1,0 +1,19 @@
+<div class="header">
+    <div class="name" trans>Objects</div>
+    <button class="close-button" mat-icon-button (click)="panelRef.close()">
+        <svg-icon name="close"></svg-icon>
+    </button>
+</div>
+<div class="items-list" customScrollbar reorderObjects>
+    <div class="reorder-item-wrapper" *ngFor="let object of objects.getAll()">
+        <div class="item"
+             (click)="selectObject(object)"
+             [class.disabled]="!object.selectable"
+             [class.active]="objects.isActive(object)"
+             [attr.data-id]="object.data.id"
+        >
+            <svg-icon [name]="getIcon(object)" class="list-icon"></svg-icon>
+            <div class="name" trans>{{getObjectDisplayName(object)}}</div>
+        </div>
+    </div>
+</div>

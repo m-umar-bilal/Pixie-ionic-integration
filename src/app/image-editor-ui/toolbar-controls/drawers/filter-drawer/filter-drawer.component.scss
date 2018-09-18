@@ -1,0 +1,26 @@
+@import "~vebto-client/scss/_variables";
+@import '~@angular/material/theming';
+
+filter-drawer {
+  display: block;
+  width: 100%;
+
+  &.controls-drawer > .content {
+    justify-content: flex-start;
+  }
+
+  .button-with-image {
+    position: relative;
+
+    img {
+      border-radius: 4px;
+      width: 65px;
+      height: 65px;
+    }
+
+    .bottom-label {
+      margin-top: 3px;
+      font-size: 1.1rem;
+    }
+  }
+}

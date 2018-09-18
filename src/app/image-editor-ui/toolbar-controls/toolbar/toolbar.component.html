@@ -1,0 +1,74 @@
+<ng-container *ngIf="!compactMode">
+    <div class="left">
+        <button mat-button (click)="executeOpenButtonAction()" *ngIf="!config.get('pixie.ui.toolbar.hideOpenButton')" class="open-button">
+            <span class="mat-menu-trigger" [matMenuTriggerFor]="openMenu"></span>
+            <svg-icon name="photo-library"></svg-icon>
+            <span class="name" trans>Open</span>
+        </button>
+        <button mat-button (click)="exportImage()" *ngIf="!config.get('pixie.ui.toolbar.hideSaveButton')" class="export-button">
+            <svg-icon name="file-download"></svg-icon>
+            <span class="name" trans>Save</span>
+        </button>
+    </div>
+    <div class="center">
+        <button mat-icon-button (click)="zoomOut()">
+            <svg-icon name="remove"></svg-icon>
+        </button>
+        <div class="current">
+            <div trans>Zoom</div>
+            <div class="value">{{zoom.getPercent()}}%</div>
+        </div>
+        <button mat-icon-button (click)="zoomIn()">
+            <svg-icon name="add"></svg-icon>
+        </button>
+    </div>
+    <div class="right">
+        <button mat-icon-button [disabled]="!history.canUndo()" (click)="history.undo()">
+            <svg-icon name="undo"></svg-icon>
+        </button>
+        <button mat-icon-button [disabled]="!history.canRedo()" (click)="history.redo()">
+            <svg-icon name="redo"></svg-icon>
+        </button>
+        <button class="toggle-history-button" mat-icon-button (click)="panels.toggleHistory()">
+            <svg-icon name="history"></svg-icon>
+        </button>
+        <button mat-icon-button (click)="panels.toggleObjects()">
+            <svg-icon name="layers"></svg-icon>
+        </button>
+        <button mat-icon-button class="close-button" (click)="editorUi.close()" *ngIf="editorUi.isOverlayMode() || ! config.get('pixie.ui.toolbar.hideCloseButton')">
+            <svg-icon name="close"></svg-icon>
+        </button>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="compactMode">
+    <div class="left">
+        <button mat-icon-button (click)="activeDrawer.close()" *ngIf="activeDrawer.isOpen()">
+            <svg-icon name="close"></svg-icon>
+        </button>
+
+        <button mat-icon-button (click)="executeOpenButtonAction()" *ngIf="!activeDrawer.isOpen()" class="mobile-open-button">
+            <span class="mat-menu-trigger" [matMenuTriggerFor]="openMenu"></span>
+            <svg-icon name="photo-library"></svg-icon>
+        </button>
+    </div>
+    <div class="center drawer-name">
+        <span *ngIf="activeDrawer.isOpen()">{{activeDrawer.getDisplayName()}}</span>
+        <span *ngIf="!activeDrawer.isOpen()" trans>Editor</span>
+    </div>
+    <div class="right">
+        <button mat-icon-button (click)="activeDrawer.apply()" *ngIf="activeDrawer.isOpen()">
+            <svg-icon name="check"></svg-icon>
+        </button>
+
+        <button mat-icon-button (click)="exportImage()" *ngIf="!activeDrawer.isOpen()">
+            <svg-icon name="file-download"></svg-icon>
+        </button>
+    </div>
+</ng-container>
+
+<mat-menu #openMenu="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item (click)="openBackgroundImage()" trans>Background Image</button>
+    <button mat-menu-item (click)="openOverlayImage()" trans>Overlay Image</button>
+    <button mat-menu-item (click)="openStateFile()" trans>Editor Project File</button>
+</mat-menu>

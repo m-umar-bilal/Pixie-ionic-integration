@@ -1,0 +1,8 @@
+<div class="content">
+    <color-widget [formControl]="activeObject.getControl(controlName)" [compact]="true"></color-widget>
+
+    <div class="slider-container">
+        <div class="slider-label" trans>Outline Width</div>
+        <mat-slider min="0" max="20" step="1" (input)="setValue('stroke.width', $event.value)" [formControl]="activeObject.getControl('stroke.width')"></mat-slider>
+    </div>
+</div>

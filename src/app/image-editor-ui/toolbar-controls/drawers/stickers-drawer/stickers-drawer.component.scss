@@ -1,0 +1,23 @@
+@import "~vebto-client/scss/_variables";
+@import '~@angular/material/theming';
+
+stickers-drawer {
+  display: block;
+
+  .button-with-image.dark-bg {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .stickers-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: $tablet) {
+    &.controls-drawer .content {
+      justify-content: flex-start;
+    }
+  }
+}

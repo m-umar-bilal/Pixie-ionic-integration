@@ -1,0 +1,19 @@
+@import "../../../../../scss/_variables";
+@import '~@angular/material/theming';
+
+filter-controls-drawer {
+  display: block;
+
+  .content {
+    flex-direction: column;
+
+    //hide blend color select as there's not enough space on mobile
+    &.blendColor .input-container {
+      display: none;
+    }
+
+    @media only screen and (max-width: $tablet) {
+      justify-content: flex-start;
+    }
+  }
+}

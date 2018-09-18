@@ -1,0 +1,23 @@
+<div class="content">
+    <color-widget [formControl]="activeObject.getControl('fill')" trans>Color Picker</color-widget>
+
+    <div class="add-text-button-wrapper">
+        <div class="round-action-button add-text-button" (click)="addText()">
+            <svg-icon name="add"></svg-icon>
+        </div>
+        <div class="bottom-label" trans>Add Text</div>
+    </div>
+
+    <section class="select-font-wrapper">
+        <button
+                class="select-font-button no-style"
+                (click)="openGoogleFontsPanel(fontsButton)"
+                #fontsButton
+                [style.fontFamily]="textTool.getStyle('fontFamily')"
+        >
+            <span class="text">{{textTool.getStyle('fontFamily')}}</span>
+            <svg-icon name="keyboard-arrow-down"></svg-icon>
+        </button>
+        <div class="bottom-label" trans>Font</div>
+    </section>
+</div>

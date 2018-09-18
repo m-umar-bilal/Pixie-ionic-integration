@@ -1,0 +1,12 @@
+@import "../../../../../scss/_variables";
+@import '~@angular/material/theming';
+
+gradient-controls-drawer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: $tablet) {
+    justify-content: flex-start;
+  }
+}

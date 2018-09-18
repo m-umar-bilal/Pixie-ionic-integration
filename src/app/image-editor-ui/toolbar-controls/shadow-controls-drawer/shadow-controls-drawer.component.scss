@@ -1,0 +1,19 @@
+@import "../../../../scss/_variables";
+@import '~@angular/material/theming';
+
+shadow-controls-drawer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+
+  @media only screen and (max-width: $tablet) {
+    justify-content: flex-start;
+    padding: 0 5px;
+
+    .slider-container {
+      margin: 0 5px;
+    }
+  }
+}

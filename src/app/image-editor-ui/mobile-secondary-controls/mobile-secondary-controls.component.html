@@ -1,0 +1,32 @@
+<div class="left">
+    <ng-container *ngIf="activeObject.getId()">
+        <button mat-icon-button (click)="openObjectDrawer()">
+            <svg-icon name="add-circle-outline"></svg-icon>
+        </button>
+
+        <button mat-icon-button (click)="deleteObject()">
+            <svg-icon name="delete-custom"></svg-icon>
+        </button>
+
+        <button mat-icon-button (click)="activeObject.flipHorizontal()">
+            <svg-icon name="flip"></svg-icon>
+        </button>
+
+        <button mat-icon-button (click)="bringActiveObjectToFront()">
+            <svg-icon name="flip-to-front"></svg-icon>
+        </button>
+
+        <button mat-icon-button (click)="controls.openPanel('objectSettings')" [disabled]="!shouldShowSettingsIcon()">
+            <svg-icon name="settings-custom"></svg-icon>
+        </button>
+    </ng-container>
+</div>
+
+<div class="right" *ngIf="breakpoints.isMobile">
+    <button mat-icon-button [disabled]="!history.canUndo()" (click)="history.undo()">
+        <svg-icon name="undo"></svg-icon>
+    </button>
+    <button mat-icon-button [disabled]="!history.canRedo()" (click)="history.redo()">
+        <svg-icon name="redo"></svg-icon>
+    </button>
+</div>

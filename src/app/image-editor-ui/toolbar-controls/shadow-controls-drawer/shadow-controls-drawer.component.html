@@ -1,0 +1,15 @@
+<button class="round-action-button color-picker-button" mat-icon-button (click)="openColorPicker()" #colorPickerButton>
+    <svg-icon name="color-wheel-custom"></svg-icon>
+</button>
+<div class="slider-container">
+    <div class="slider-label" trans>Blur</div>
+    <mat-slider min="1" max="20" (input)="setValue('shadow.blur', $event.value)" [formControl]="activeObject.getControl('shadow.blur')"></mat-slider>
+</div>
+<div class="slider-container">
+    <div class="slider-label" trans>Offset X</div>
+    <mat-slider min="1" max="20" (input)="setValue('shadow.offsetX', $event.value)" [formControl]="activeObject.getControl('shadow.offsetX')"></mat-slider>
+</div>
+<div class="slider-container">
+    <div class="slider-label" trans>Offset Y</div>
+    <mat-slider min="1" max="20" (input)="setValue('shadow.offsetY', $event.value)" [formControl]="activeObject.getControl('shadow.offsetY')"></mat-slider>
+</div>

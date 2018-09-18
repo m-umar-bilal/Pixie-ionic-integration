@@ -1,0 +1,59 @@
+<div class="content">
+    <ng-container *ngIf="controls.panelIsVisible('objectSettings')">
+        <div class="button-with-image" (click)="controls.openPanel('shadowControls')">
+            <svg-icon name="shadow-custom"></svg-icon>
+            <div class="bottom-label" trans>Shadow</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('colorControls')">
+            <svg-icon name="color-custom"></svg-icon>
+            <div class="bottom-label" trans>Color</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('outlineControls')">
+            <svg-icon name="outline-custom"></svg-icon>
+            <div class="bottom-label" trans>Outline</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('backgroundControls')">
+            <svg-icon name="background-custom"></svg-icon>
+            <div class="bottom-label" trans>Background</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('textureControls')">
+            <svg-icon name="texture-custom"></svg-icon>
+            <div class="bottom-label" trans>Texture</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('gradientControls')">
+            <svg-icon name="gradient-custom"></svg-icon>
+            <div class="bottom-label" trans>Gradient</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('opacityControls')">
+            <svg-icon name="opacity-custom"></svg-icon>
+            <div class="bottom-label" trans>Opacity</div>
+        </div>
+
+        <div class="button-with-image" (click)="controls.openPanel('textControls')" *ngIf="activeObject.isText()">
+            <svg-icon name="text-options-custom"></svg-icon>
+            <div class="bottom-label" trans>Text Style</div>
+        </div>
+    </ng-container>
+
+    <shadow-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('shadowControls')"></shadow-controls-drawer>
+
+    <color-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('colorControls')" controlName="fill" name="colorControls" trans>Color</color-controls-drawer>
+
+    <outline-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('outlineControls')" controlName="stroke.color"></outline-controls-drawer>
+
+    <color-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('backgroundControls')" controlName="backgroundColor" name="background" trans>Background Color</color-controls-drawer>
+
+    <texture-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('textureControls')"></texture-controls-drawer>
+
+    <gradient-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('gradientControls')"></gradient-controls-drawer>
+
+    <opacity-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('opacityControls')"></opacity-controls-drawer>
+
+    <text-controls-drawer #controlsDrawer *ngIf="controls.panelIsVisible('textControls')"></text-controls-drawer>
+</div>

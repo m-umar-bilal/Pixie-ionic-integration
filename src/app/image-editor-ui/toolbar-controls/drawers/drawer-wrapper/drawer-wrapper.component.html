@@ -1,0 +1,18 @@
+<button class="back-button" mat-raised-button (click)="activeDrawer.close()" *ngIf="!breakpoints.isMobile">
+    <span *ngIf="activeDrawer.dirty()" trans>Cancel</span>
+    <span *ngIf="!activeDrawer.dirty()" trans>Close</span>
+</button>
+
+<section class="scroll-container" customScrollbar [suppressX]="false">
+    <ng-content></ng-content>
+</section>
+
+<button
+        class="apply-button"
+        mat-raised-button
+        color="accent"
+        (click)="activeDrawer.apply()"
+        *ngIf="!breakpoints.isMobile"
+        [disabled]="!activeDrawer.canApplyChanges()"
+        trans
+>Apply</button>

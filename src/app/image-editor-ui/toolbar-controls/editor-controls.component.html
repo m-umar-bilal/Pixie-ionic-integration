@@ -1,0 +1,26 @@
+<navigation-bar
+        *ngIf="getControlsPosition() === 'top'"
+        [@navAnimation]="controls.panelIsVisible('navigation')"
+></navigation-bar>
+
+<navigation-bar
+        *ngIf="getControlsPosition() === 'bottom'"
+        [@navAnimation]="controls.panelIsVisible('navigation')"
+></navigation-bar>
+
+<drawer-wrapper [@controlsAnimation]="!controls.panelIsVisible('navigation')">
+    <filter-drawer #controlsDrawer *ngIf="controls.panelIsOpen('filter')" [class.hidden]="controls.panelIsOpen('objectSettings')"></filter-drawer>
+    <resize-drawer #controlsDrawer *ngIf="controls.panelIsOpen('resize')" [class.hidden]="controls.panelIsOpen('objectSettings')"></resize-drawer>
+    <transform-drawer #controlsDrawer *ngIf="controls.panelIsOpen('rotate')" [class.hidden]="controls.panelIsOpen('objectSettings')"></transform-drawer>
+    <crop-drawer #controlsDrawer *ngIf="controls.panelIsOpen('crop')" [class.hidden]="controls.panelIsOpen('objectSettings')"></crop-drawer>
+    <draw-drawer #controlsDrawer *ngIf="controls.panelIsOpen('draw')" [class.hidden]="controls.panelIsOpen('objectSettings')"></draw-drawer>
+    <text-drawer #controlsDrawer *ngIf="controls.panelIsOpen('text')" [class.hidden]="controls.panelIsOpen('objectSettings')"></text-drawer>
+    <shapes-drawer #controlsDrawer *ngIf="controls.panelIsOpen('shapes')" [class.hidden]="controls.panelIsOpen('objectSettings')"></shapes-drawer>
+    <stickers-drawer #controlsDrawer *ngIf="controls.panelIsOpen('stickers')" [class.hidden]="controls.panelIsOpen('objectSettings')"></stickers-drawer>
+    <round-drawer #controlsDrawer *ngIf="controls.panelIsOpen('round')" [class.hidden]="controls.panelIsOpen('objectSettings')"></round-drawer>
+    <frame-drawer #controlsDrawer *ngIf="controls.panelIsOpen('frame')" [class.hidden]="controls.panelIsOpen('objectSettings')"></frame-drawer>
+    <canvas-background-drawer #controlsDrawer *ngIf="controls.panelIsOpen('background')" [class.hidden]="controls.panelIsOpen('objectSettings')"></canvas-background-drawer>
+    <object-settings-drawer #controlsDrawer *ngIf="controls.panelIsOpen('objectSettings')"></object-settings-drawer>
+</drawer-wrapper>
+
+<mobile-secondary-controls *ngIf="activeObject.getId()"></mobile-secondary-controls>

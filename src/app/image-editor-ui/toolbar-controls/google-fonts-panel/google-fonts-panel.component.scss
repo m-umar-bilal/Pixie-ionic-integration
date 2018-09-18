@@ -1,0 +1,61 @@
+@import "../../../../../node_modules/vebto-client/scss/variables";
+@import '../../../../../node_modules/@angular/material/theming';
+
+google-fonts-panel {
+  display: block;
+  width: 280px;
+  min-height: 600px;
+  background-color: $site-bg-color-100;
+  box-shadow: -1px 0 2px rgba(0,0,0,.5);
+  border-radius: 2px;
+  color: $site-text-color-400;
+
+  > .header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    color: $site-text-color-100;
+    border-bottom: 1px solid $site-border-color-200;
+    background-color: $site-primary-color-200;
+
+    > .close-button {
+      margin-left: auto;
+    }
+  }
+
+  .many-inputs {
+    padding: 10px;
+
+    .input-container {
+      width: auto;
+
+      > input {
+        background-color: $site-bg-color-100;
+        border-color: $site-border-color-200;
+      }
+    }
+  }
+
+  > .fonts {
+    text-align: center;
+    padding: 10px 0;
+
+    > .font {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      width: 100%;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $site-accent-color;
+      }
+    }
+  }
+
+  > .pagination {
+    padding: 0 10px 10px;
+    text-align: right;
+    margin-top: auto;
+  }
+}

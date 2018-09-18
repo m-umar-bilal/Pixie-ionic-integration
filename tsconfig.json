@@ -12,5 +12,12 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./vebto-client/core/**/*.ts"
+  ],
+  "exclude": [
+    "./vebto-client/**/*.module.ts"
+  ]
 }

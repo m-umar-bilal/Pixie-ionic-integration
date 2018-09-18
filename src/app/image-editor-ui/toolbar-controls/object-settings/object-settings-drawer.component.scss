@@ -1,0 +1,20 @@
+@import "~vebto-client/scss/_variables";
+@import '~@angular/material/theming';
+
+object-settings-drawer {
+  display: block;
+
+  .button-with-image {
+    svg-icon {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  @media only screen and (max-width: $tablet) {
+    &.controls-drawer .content {
+      justify-content: flex-start !important;
+    }
+  }
+
+}

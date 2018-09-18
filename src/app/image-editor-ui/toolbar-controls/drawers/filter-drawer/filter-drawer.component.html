@@ -1,0 +1,21 @@
+<div class="content">
+    <ng-container *ngIf="!controls.panelIsVisible('filterControls')">
+        <div class="button-with-image" *ngFor="let filter of filterTool.getAll()" (click)="toggleFilter(filter)">
+            <div class="image-container">
+                <img [src]="getFilterImage(filter)" alt="Filter preview">
+                <div class="overlay" *ngIf="filterApplied(filter.name)">
+                    <button mat-icon-button (click)="removeFilter(filter); $event.stopPropagation();">
+                        <svg-icon name="cancel"></svg-icon>
+                    </button>
+                    <button mat-icon-button (click)="showFilterConfig(filter); $event.stopPropagation();" *ngIf="filter.options">
+                        <svg-icon name="settings"></svg-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="bottom-label" trans>{{filter.displayName || filter.name}}</div>
+        </div>
+    </ng-container>
+
+    <filter-controls-drawer [selectedFilter]="selectedFilter" *ngIf="controls.panelIsVisible('filterControls')"></filter-controls-drawer>
+</div>
+
